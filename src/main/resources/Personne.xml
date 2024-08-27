@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       <bean id="Personne" abstract="true" class="com.example.demo.entities.Personne">
+       </bean>
+       <bean id="Medecin" parent="Personne" class="com.example.demo.entities.Medecin">
+       </bean>
+       <bean id="Patient" parent="Personne" class="com.example.demo.entities.Patient">
+       </bean>
+       <bean id="PersonneServiceImp" class="com.example.demo.service.PersonneServiceImp">
+       		<property name="personnes">
+       			<list></list>
+       		</property>
+       </bean>
+       <bean id="PersonneController" class="com.example.demo.controller.PersonneController">
+       		<property name="per" ref="PersonneServiceImp"></property>
+       </bean>
+</beans> 
