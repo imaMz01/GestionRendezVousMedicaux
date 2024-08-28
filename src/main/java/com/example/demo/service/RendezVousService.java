@@ -8,7 +8,7 @@ import com.example.demo.entities.RendezVous;
 
 public interface RendezVousService {
 
-	RendezVous addRendezVous(RendezVous r);
+	String addRendezVous(RendezVous r);
 	RendezVous updateRendezVous(RendezVous r);
 	void acceptRendezVous(int id);
 	void annulRendezVous(int id);

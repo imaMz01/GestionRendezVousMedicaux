@@ -18,10 +18,14 @@ public class RendezVousServIcemp implements RendezVousService{
 //	}
 	
 	@Override
-	public RendezVous addRendezVous(RendezVous r) {
+	public String addRendezVous(RendezVous r) {
 		// TODO Auto-generated method stub
-		rendezVous.add(r);
-		return r;
+		if(r.getMedecin().isDisponible()) {
+			rendezVous.add(r);
+			return "votre rendez vous est bien enregistré";
+		}
+			
+		return "Le medecin n'est pas disponible";
 	}
 
 	public List<RendezVous> getRendezVous() {

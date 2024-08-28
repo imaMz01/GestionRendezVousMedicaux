@@ -18,12 +18,12 @@ public class RendezVous {
 	private Medecin medecin;
 	
 	
-	public RendezVous(int id, String note, LocalDate date, Etat etat, Patient patient, Medecin medecin) {
+	public RendezVous(int id, String note, LocalDate date, Patient patient, Medecin medecin) {
 		super();
 		this.id = id;
 		this.note = note;
 		this.date = date;
-		this.etat = etat;
+		this.etat = Etat.en_Attente;
 		this.patient = patient;
 		this.medecin = medecin;
 	}

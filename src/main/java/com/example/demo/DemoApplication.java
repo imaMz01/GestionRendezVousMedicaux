@@ -38,9 +38,9 @@ public class DemoApplication {
 			ApplicationContext context1 = new ClassPathXmlApplicationContext("RendezVous.xml");
 
 			RendezVousController rdv = (RendezVousController) context1.getBean("RendezVousController");
-			rdv.getRdv().addRendezVous(new RendezVous(1, "", LocalDate.parse("2024-08-12"), Etat.en_Attente, new Patient(1, "NomP1", "PrenomP1"), new Medecin(3, "NomM3", "PrenomM3", true)));
-			rdv.getRdv().addRendezVous(new RendezVous(2, "", LocalDate.parse("2024-08-12"), Etat.en_Attente, new Patient(2, "NomP2", "PrenomP2"), new Medecin(3, "NomM3", "PrenomM3", true)));
-			rdv.getRdv().addRendezVous(new RendezVous(3, "", LocalDate.parse("2024-08-12"), Etat.en_Attente, new Patient(3, "NomP3", "PrenomP3"), new Medecin(2, "NomM2", "PrenomM2", true)));
+			rdv.getRdv().addRendezVous(new RendezVous(1, "", LocalDate.parse("2024-08-12"), new Patient(1, "NomP1", "PrenomP1"), new Medecin(3, "NomM3", "PrenomM3", true)));
+			rdv.getRdv().addRendezVous(new RendezVous(2, "", LocalDate.parse("2024-08-12"), new Patient(2, "NomP2", "PrenomP2"), new Medecin(3, "NomM3", "PrenomM3", true)));
+			rdv.getRdv().addRendezVous(new RendezVous(3, "", LocalDate.parse("2024-08-12"), new Patient(3, "NomP3", "PrenomP3"), new Medecin(2, "NomM2", "PrenomM2", true)));
 			System.out.println("**Afficher la liste des rendez vous d'un medecin**");
 			rdv.getRdv().list(new Medecin(3, "NomM3", "PrenomM3", true)).forEach(elmt->elmt.info());
 			System.out.println("**Afficher la liste des rendez vous d'un patient**");
@@ -50,7 +50,7 @@ public class DemoApplication {
 			System.out.println("Annuler un rendez vous :");
 			rdv.getRdv().annulRendezVous(3);
 			System.out.println("Modifier un rendez vous :");
-			rdv.getRdv().updateRendezVous(new RendezVous(2, "", LocalDate.parse("2024-08-15"), Etat.en_Attente, new Patient(2, "NomP2", "PrenomP2"), new Medecin(3, "NomM3", "PrenomM3", true)));
+			rdv.getRdv().updateRendezVous(new RendezVous(2, "", LocalDate.parse("2024-08-15"), new Patient(2, "NomP2", "PrenomP2"), new Medecin(3, "NomM3", "PrenomM3", true)));
 			System.out.println("Ajouter une note a un rendez vous :");
 			rdv.getRdv().addNoteRendezVous(1, "note");
 			System.out.println("**Afficher la liste des rendez vous **");
